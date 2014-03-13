@@ -1,0 +1,15 @@
+= form_for @converter, url: 'javascript:void(0)', remote: true do |f|
+  .row
+    .col-xs-12
+      .form-group.text-center
+        = f.submit raw('変換 (⌘ + Enter)'), class: 'btn btn-primary btn-lg js_submit'
+
+  .row
+    .col-xs-6
+      .form-group
+        %label HTML(⌘ + 1)
+        = f.text_area :html, rows: 20, class: "form-control"
+    .col-xs-6
+      .form-group
+        %label HAML(⌘ + 2)
+        = f.text_area :haml, rows: 20, class: "form-control"

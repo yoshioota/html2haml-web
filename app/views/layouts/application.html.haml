@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title HTML to Haml WEB
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    - if Rails.env.production?
+      = render partial: 'shared/ga'
+
+  %body
+    = yield
+
+    %footer.text-center
+      %div
+        ソース: #{link_to *(['https://github.com/yoshioota/html2haml-web'] * 2)}
+      %div
+        作者: #{link_to '@yoshi_oota', 'https://twitter.com/yoshi_oota'}

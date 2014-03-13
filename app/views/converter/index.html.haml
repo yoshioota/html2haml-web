@@ -1,0 +1,39 @@
+%h1.text-center HTML to Haml WEB
+
+.container-fluid
+  = render partial: 'form'
+
+:javascript
+
+  function convert() {
+    $('.js_submit').prop('disabled', true)
+
+    $.get(
+      'api/convert.text',
+      {html: $('#converter_html').val()},
+      function(data, textStatus, jqXHR){
+        $('#converter_haml').val(data)
+        $('.js_submit').prop('disabled', false)
+      })
+
+    return false
+  }
+
+  $(function(){
+    $('#converter_html').focus()
+
+    $(document).keydown(function(event){
+      if((event.ctrlKey || event.metaKey) && event.keyCode == 13){
+        event.preventDefault()
+        convert()
+      } else if((event.ctrlKey || event.metaKey) && event.keyCode == 49) {
+        event.preventDefault()
+        $('#converter_html').focus()
+      } else if((event.ctrlKey || event.metaKey) && event.keyCode == 50) {
+        event.preventDefault()
+        $('#converter_haml').focus()
+      }
+    })
+
+    $('.new_converter').submit(convert)
+  })

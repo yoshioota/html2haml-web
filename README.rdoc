@@ -7,6 +7,6 @@ HTMLコードをHamlへ変換するウェブアプリです。
 中身は内部でgemのhtml2hamlを呼んでいるだけです。
 
 
-=== 公開中URL
+=== Demo Page
 
 https://html2haml-web.herokuapp.com/

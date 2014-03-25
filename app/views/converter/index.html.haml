@@ -8,7 +8,7 @@
   function convert() {
     $('.js_submit').prop('disabled', true)
 
-    $.get(
+    $.post(
       'api/convert.text',
       {html: $('#converter_html').val()},
       function(data, textStatus, jqXHR){
